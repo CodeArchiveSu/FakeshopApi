@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="/style.css" rel ='stylesheet'>
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper-cart">
+    <h1>SHOPPING CART</h1>
+   <div class="cart-container"></div>
+   <div><button class="paybutton">Pay</button></div>
+  <a href="index.html" class="backbutton"">Back</a>
+   </div>
+
+    <script>
+
+
+ var 꺼낸거 = localStorage.getItem('cart');
+ 꺼낸거 = JSON.parse(꺼낸거);
+
+
+ 꺼낸거.forEach((item)=>{
+  setIteminList(item.Name, item.수량, item.가격);
+ })
+
+
+ function setIteminList(name,num,price){
+    var cartItemList = `<div class="item-container">
+    <div class="cart-name">${name}</div>
+    <div class="cart-num">${num}</div>
+    <div class="cart-num">${price}$</div>
+    <div class="cancel-button hide">x</div>
+    </div>`
+    $('.cart-container').append(cartItemList)
+ }
+
+
+
+ $('.cart-container').on('mouseenter','.item-container',function(){
+    $(this).find('.cancel-button').removeClass('hide')
+ }).on('mouseleave','.item-container',function(){
+    $(this).find('.cancel-button').addClass('hide')
+ }).on('click','.cancel-button',function(){
+    console.log($(this).siblings('.cart-name').html())//
+    console.log(꺼낸거)
+    var itemName = $(this).siblings('.cart-name').html()
+
+    var findSameName = 꺼낸거.filter((item)=>{
+        return item.Name == itemName
+    })
+
+    if(findSameName){
+        꺼낸거.splice(findSameName, 1);
+    }
+
+    var new꺼낸거 = JSON.stringify(꺼낸거)
+     localStorage.setItem('cart', new꺼낸거)
+
+     $(this).closest('.item-container').remove();
+    
+
+ })
+
+
+ //[]배열 비어지면 your shoppping cart is empty
+ //장바구니에 있는거 누르면 모달창 html  메세지 바꾸기 
+
+
+        
+    </script>
+</body>
+</html>

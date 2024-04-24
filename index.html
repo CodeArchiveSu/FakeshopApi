@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+   <link href="/style.css" rel ='stylesheet'>
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+   <title>Best Seller</title>
+</head>
+<body>
+   
+    <div class="filter-menu">
+        <!-- <h1 class="uppercase">AMAZONI</h1> -->
+        <div class="filterbar">
+            <div class="icon">
+            <img class='filter-icon' src="/asset/filter.png">
+            <button class="filterbutton uppercase">Close filters</button>
+            </div>
+        <a href="./shoppingcart.html" class="shoppingcart uppercase">Shopping cart</a>
+        </div>
+    </div>
+
+
+    <div class="content">
+
+        <div class="filter">
+            <!-- 검색창 -->
+            <div class="searchinput">
+                <input type="text" class="search">
+                <button id="searchBtn"><img src="./asset/search.png"></button>
+            </div> 
+
+            <!-- 검색창 -->
+            
+            <div class="sortby uppercase">Sort by
+                 <select>
+                    <option value="default" class="uppercase">options</option>
+                     <option value="low"  class="uppercase">Price:Low to High</option>
+                     <option value="high"  class="uppercase">Price:High to Low</option>
+                     <option value="best"  class="uppercase">Best Sellers</option>
+                 </select>
+                </div>
+                <div class="type">
+                    <div>Type</div>
+                    <div class="women">
+                        <input type="checkbox" id="type1" value="women's clothing" class="check">
+                        <p class="categorie uppercase">Women's clothing</p>
+                    </div>
+                    <div class="men">
+                        <input type="checkbox" id="type2" value="men's clothing"  class="check">
+                        <p  class="categorie uppercase">Men's clothing</p>
+                    </div>
+                    <div class="jewerly">
+                    <input type="checkbox" id="type3" value="jewelery"  class="check">
+                    <p  class="categorie uppercase">Jewelery</p>
+                    </div>
+                    <div class="electroincs">
+                        <input type="checkbox" id="type4" value="electronics"  class="check">
+                        <p  class="categorie uppercase">Electronics</p>
+                    </div>
+                </div>
+                <div class="priceRange">
+ <div class="wrapper">
+    <header>
+        <h2  class="uppercase">Price</h2>
+    </header>
+                <div class="price-input">
+                    <div class="field">
+                        <input type="number" class="input-min" id="price-min" value="0" readonly>$
+                        </div>
+                    <div class="separator">-</div>
+                    <div class="field">
+                        <input type="number" class="input-max" id="price-max" value="1000" readonly>$
+                    </div>
+                </div>
+        
+            <div class="slider">
+                <div class="progress"></div>
+            </div>
+            <div class="range-input">
+                <input type="range" class="range-min" min="0" max="1000" value="0">
+                <input type="range" class="range-max" min="0" max="1000" value="1000">
+            </div>
+        </div>
+        </div>
+        </div>
+ 
+
+    <div class="container"></div>
+    </div>
+  
+
+    <div class="modal-container hide">
+        <div class="modal">
+            <div class="modalmessage">Successfully added!</div>
+            <div class="button-container">
+            <div class="gotocart"><button><a href="./shoppingcart.html">Shopping cart</a></button></div>
+            <div class="separator"></div>
+            <div><button  class="continueshopping">Continue shopping</button></div>
+            </div>
+        </div>
+    </div>
+        
+
+
+
+
+    <!-- <div class="image"><img src="/asset/제목_없는_아트워크 5.png"></div> -->
+
+
+    <script src="/thirdtest.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+            AOS.init();
+        </script>
+
+  
+</body>
+</html>
