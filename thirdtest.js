@@ -22,8 +22,7 @@ var originalData = [];  // Store the original product data
 var filteredData = [];  // Data after applying filters
 var sortedData = [];
 var finalproduct = []; 
-var searchproduct = [];    // Data after applying sorting 
-
+var searchproduct = [];    // Data after applying sorting var
 
 
 function applyFilters(){
@@ -42,9 +41,14 @@ function applyFilters(){
     applySorting(); 
 }
 
+
+
 function applySorting(){
     var selectValue = $('select').val();
     sortedData = filteredData.slice();
+
+    console.log(selectValue)
+
 
     if (selectValue == 'low') {
         sortedData.sort(function(a, b) {
@@ -66,7 +70,6 @@ function applySorting(){
 
 function applyPriceFilter() {
     finalproduct = sortedData.slice();
-    console.log(finalproduct)
 
     var minPrice =$('.range-min').val(); 
     var maxPrice = $('.range-max').val(); 
@@ -90,22 +93,18 @@ function searchFilter(e) {
     if (e) e.preventDefault();  // 이벤트 객체가 있는 경우에만 preventDefault 호출
     const val = searchInput.val(); //공백
     const test = /^\s*$/.test(val)
-    console.log(val)
-    console.log(test)
+    
     if(test == true){
         searchproduct = finalproduct.slice();
-        console.log(originalData)
+   
     }else{
         searchproduct = finalproduct.filter(function(a) {
-            console.log('true')
+      
             return a.title.toLowerCase().includes(val.toLowerCase());
         });
     }
 
-    
-   
-    console.log(val == "")
-    console.log('마지막배열',searchproduct)
+
     redrawProducts();
 }
 
@@ -116,7 +115,6 @@ searchBtn.on('click',searchFilter)
 function redrawProducts(){
     $('.container').html('');
     searchproduct.forEach(addProduct);
-    console.log('실행중')
 }
 
 
@@ -228,8 +226,6 @@ $('.container').on('mouseenter', '.addshoppingcart', function() {
  var newArr = JSON.stringify(shoppingCart);
  localStorage.setItem('cart', newArr)
 
-// console.log(!filterSameItemCart);
-console.log(shoppingCart);
 
 })
 
@@ -238,12 +234,7 @@ $('.continueshopping').on('click',function(){
     $('.modal-container').addClass('hide')
 })
 
-$('.uppercase').each(function() {
-    var textOfCategorie = $(this).html(); 
-    $(this).html(textOfCategorie.toUpperCase());  
-});
 
-//pricefiltervalue
 
 const rangeInput = document.querySelectorAll(".range-input input"),
 priceInput = document.querySelectorAll(".price-input input"),
